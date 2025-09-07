@@ -3,12 +3,6 @@
 A simple, responsive Linktree-style page to share your main links and social profiles.  
 Built with **HTML, CSS, and JavaScript** — no frameworks required.
 
----
-
-## 🚀 Demo
-
-👉 Live demo available at:  
-[https://caiogarciadev.github.io/links/](https://caiogarciadev.github.io/links/)
 
 ---
 
