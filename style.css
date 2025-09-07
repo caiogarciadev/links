@@ -1,0 +1,229 @@
+* {                              /* Aplica a todos os elementos */
+    margin: 0;                   /* Remove margens padrão dos elementos */
+    padding: 0;                  /* Remove padding padrão dos elementos */
+    box-sizing: border-box;      /* Inclui padding e border na largura e altura dos elementos */
+}
+
+/* Tema escuro por padrão */
+:root {
+    --background-color:                                    /* Fundo com gradientes coloridos e escuros */
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.6) 0%, transparent 40%), 
+    radial-gradient(circle at 80% 30%, rgba(0, 200, 255, 0.6) 0%, transparent 50%), 
+    radial-gradient(circle at 50% 50%, rgba(255, 0, 255, 0.5) 0%, transparent 60%), 
+    linear-gradient(to bottom right, #0a0a0a, #111122, #000000);               
+    background-blend-mode: screen;;   ;                   /* Modo de mistura para cores vibrantes */
+    --text-color: white;                                /* Cor do texto branca */
+    --stroke-color: rgba(255, 255, 255, 0.3);           /* Cor de bordas e linhas */
+    --surface-color: rgba(255, 255, 255, 0.1);          /* Cor de superfícies como botões e cards */
+}
+    
+/*Lua visível, sol escondido*/
+#switch .moon {      
+    display: block;     
+}
+#switch .sun {
+    display: none;
+}
+
+/* Tema claro quando tiver .light no html/body */
+.light {
+    --background-color:
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.4) 0%, transparent 40%), 
+    radial-gradient(circle at 80% 30%, rgba(0, 200, 255, 0.4) 0%, transparent 50%), 
+    radial-gradient(circle at 50% 50%, rgba(255, 0, 255, 0.35) 0%, transparent 60%), 
+    linear-gradient(to bottom right, #e6f0ff, #d0e0ff, #f0f8ff);                  
+    background-blend-mode: screen;
+    --text-color: #000000;       
+    --stroke-color: rgba(0, 0, 0, 0.05); 
+    --surface-color: rgba(0 , 0 , 0 , 0.15); 
+}
+
+/*Sol visível, lua escondida*/
+.light #switch .moon {
+    display: none;
+}
+.light #switch .sun {
+    display: block;
+}
+
+/* Estilos globais */
+body {
+   height: 100vh;
+   margin: 0;
+   background: var(--background-color); 
+}
+
+
+/* Fonte e cor do texto */
+body * {
+  font-family: "Inter", sans-serif;              /* Fonte do Google Fonts */
+  color: var(--text-color);                     /* Cor do texto variável conforme o tema */
+}
+
+/* Container principal */
+#container {
+    width: 360px;                  /* Largura fixa para dispositivos móveis */
+    margin: 56px auto 0 auto;      /* Centraliza horizontalmente e adiciona margem superior */
+    padding: 0 24px;               /* Padding horizontal */
+}
+
+
+/* Perfil */
+#profile {
+    text-align: center;         /* Centraliza o conteúdo dentro da div */
+    padding: 24px;              /* Padding ao redor do conteúdo */
+}
+
+#profile img{
+    width: 112px;                                      /* Largura da imagem */
+    border-radius: 50%;                                /* Deixa a imagem redonda */
+    object-fit: cover;                                 /* Corta a imagem para caber no círculo */ 
+    border: 3px solid var(--text-color);               /* Borda branca ao redor da imagem */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);      /* Sombra */
+}
+
+/* Foto padrão no modo dark */
+.profile-pic {
+  content: url("./assets/foto-perfil-dark.jpg");
+}
+
+/* Quando tiver a classe .light no HTML, troca a foto */
+.light .profile-pic {
+  content: url("./assets/foto-perfil-light.jpg");
+}
+
+
+#profile h1 {
+    font-size: 24px;                    /* Tamanho da fonte */
+    font-weight: 700;                   /* Peso da fonte */
+    line-height: 32px;                  /* Altura da linha */
+    margin-top: 16px;                   /* Espaçamento acima do título */
+}
+
+#profile p {
+    font-size: 16px;                    /* font-size de 16px é padrão, não necessário colocar */
+    font-weight: 500;                   
+    line-height: 24px;                  
+    margin-top: 16px;                   
+
+}
+
+
+/* Botão do switch */
+#switch {
+    position: relative;              /* Necessário para posicionamento absoluto do botão dentro da caixa do switch*/
+    width: 64px;                     /* Largura do switch */
+    margin: 0 auto;                  /* Centraliza o switch horizontalmente */
+}
+
+#switch button {  
+  width: 40px;                       /* Largura */
+  height: 40px;                      /* Altura */
+  font-size: 24px;                   /* Tamanho do ícone */
+  background: white;               /* Fundo do botão */
+  border: none;                      /* Remove a borda padrão */
+  border-radius: 50%;                /* Botão redondo */
+  padding: 10px;                     /* Espaçamento interno */
+  display: flex;                     /* Usa flexbox para centralizar o ícone */
+  align-items: center;               /* Centraliza verticalmente */
+  justify-content: center;           /* Centraliza horizontalmente */
+  cursor: pointer;                   /* Cursor de ponteiro ao passar o mouse */
+  transition: background 0.5s ease;  /* Transição suave para a mudança de cor */
+
+  position: absolute;                /* Posicionamento absoluto */
+  z-index: 1;                        /* Garante que o botão fique acima de outros elementos */
+  right: -10%;                       /* Move o botão para a direita do switch */
+  transform: translateY(-50%);       /* Move o botão para baixo do switch */ /*combinado com o debaixo centraliza verticalmente*/
+  top: 50%;                          /* Posiciona o botão no meio vertical do switch */
+}
+
+.light #switch button {
+    right: auto;                          /* Remove o posicionamento à direita */
+    left: -10%;                           /* Move o botão para a esquerda do switch */
+}
+
+/* Ícone dentro do botão do switch */
+#switch ion-icon {
+  color: #333;                         /* Cor do ícone */
+}
+
+/*Efeito ao passar o mouse*/
+#switch button:hover {                   
+   background: var(--surface-color) ;    /* Fundo do botão ao passar o mouse */
+}
+
+/* Fundo do switch */
+#switch span {
+    display: block;                           /* Transforma em bloco para aplicar width e height */
+    width: 64px;                              /* Largura do fundo do switch */
+    height: 24px;                             /* Altura do fundo do switch */
+    background: var(--stroke-color);          /* Cor do fundo do switch */
+    border: 1px solid var(--surface-color);   /* Borda do switch */
+    backdrop-filter: blur(5px);               /* Efeito de desfoque */
+    -webkit-backdrop-filter: blur(5px);       /* Efeito de desfoque para Safari */
+    border-radius: 9999px;                    /* Deixa o fundo do switch arredondado */
+}
+
+
+/* Lista de links */
+ul {
+    list-style: none;                   /* Remove os marcadores padrão da lista */
+    display: flex;                      /* Usa flexbox para layout */
+    flex-direction: column;             /* Alinha os itens em coluna */
+    gap: 16px;                          /* Espaçamento entre os itens */
+    margin-top: 24px;                   /* Espaçamento acima da lista */
+}
+
+/* Estilo dos itens da lista */
+ul li a {
+    display: block;                     /* Faz o link ocupar todo o espaço do li */
+    text-decoration: none;              /* Remove o sublinhado dos links */
+    background-color: var(--stroke-color); /* Fundo do link */
+    padding: 16px 24px;                 /* Espaçamento interno */
+    border-radius: 8px;                 /* Bordas arredondadas */
+    font-size: 18px;                    /* Tamanho da fonte */
+    font-weight: 500;                   /* Peso da fonte */
+    text-align: center;                 /* Centraliza o texto */
+    transition: background-color 0.3s; /* Transição suave para a mudança de cor */
+    
+}
+
+/* Efeito hover nos links */
+ul li a:hover {                                       
+    background-color: rgba(255, 255, 255, 0.2);    /* Fundo mais claro ao passar o mouse */
+}   
+
+/* Ícones de redes sociais */
+#social-links {
+    display: flex;                      /* Usa flexbox para layout */
+    justify-content: center;            /* Centraliza os ícones horizontalmente */
+    padding: 24px 0;                    /* Espaçamento acima e abaixo */
+    font-size: 24px;                    /* Tamanho dos ícones */
+}
+
+/* Estilo dos links dos ícones */
+#social-links a {
+    display: flex;                      /* Usa flexbox para centralizar o ícone */
+    align-items: center;                /* Centraliza verticalmente */
+    justify-content: center;            /* Centraliza horizontalmente */
+    padding: 16px;                      /* Espaçamento interno ao redor do ícone */
+    transition: background 0.2s;        /* Transição suave para a mudança de cor */
+    border-radius: 50%;                 /* Deixa o fundo do ícone redondo ao passar o mouse */
+}
+
+/* Efeito hover nos ícones */
+#social-links a:hover {
+     background-color: rgba(255, 255, 255, 0.2);   
+
+}
+
+
+/* Rodapé */
+footer  {
+    text-align: center;                 /* Centraliza o texto */
+    padding: 16px 0;                    /* Espaçamento acima e abaixo */
+    font-size: 14px;                    /* Tamanho da fonte */
+    color: rgba(255, 255, 255, 0.6);   /* Cor do texto com opacidade */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha superior */
+    margin-top: 24px;                   /* Espaçamento acima do rodapé */
+}

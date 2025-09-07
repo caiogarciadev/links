@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="light">     <!-- class para mudar darkmode e lightmode (com o "light", e sem o "light")-->
+
+<head>    <!-- agrupa metadados e links para CSS e JavaScript-->
+                                
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">   <!-- link da fonte do Google Fonts-->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Caio Garcia Links | Portfolio & Socials</title>     <!-- título do site na aba-->
+
+    
+    <link rel="stylesheet" href="style.css">  <!-- link do CSS externo -->
+
+</head>
+
+
+<body>  <!-- corpo do site -->
+
+    <div id="container">        
+
+        <div id="profile">       
+
+            <img class="profile-pic" src="./assets/foto-perfil-dark.jpg" alt="Foto de Perfil">
+            <h1 #nome>Caio Maia Garcia</h1>
+            <p>Web Developer</p>
+
+        </div>
+
+        <div id="switch" onclick="toggleMode()">      <!--chama a função do JavaScript para mudar o modo-->
+            <button>
+              <ion-icon class="moon" name="moon-outline"></ion-icon>
+              <ion-icon class="sun" name="sunny-outline"></ion-icon>
+            </button>
+            <span></span>
+        </div>
+
+        <ul>    
+
+          <Li>                                                
+            <a href="https://github.com/caiogarciadev" target="_blank">GitHub</a>         <!--target="_blanck" para abrir na nova guia-->
+          </Li>
+
+          <Li>
+            <a href="https://www.linkedin.com/in/caio-maia-garcia/" target="_blank" >LinkedIn</a>
+          </Li>
+        
+          <Li>
+            <a href="https://www.instagram.com/caiogarcia13/" target="_blank" >Instagram</a>
+          </Li>
+
+        </ul>
+
+        <div id="social-links">
+
+        <a href="https://github.com/caiogarciadev" target="_blank">
+           <ion-icon name="logo-github"></ion-icon>
+        </a>
+
+        <a href="https://www.linkedin.com/in/caio-maia-garcia/" target="_blank">
+           <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+
+        <a href="https://www.instagram.com/caiogarcia13/" target="_blank">
+           <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+
+        </div>
+
+        <footer>
+            <p>Version 1.0 - more projects coming soon 💡</p>
+        </footer>
+        
+    </div>
+    
+
+                                               
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>     <!-- link do ionicons (ícones) -->
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script src="./script.js"></script>   <!-- link do JavaScript externo -->
+    
+</body>
+</html>
