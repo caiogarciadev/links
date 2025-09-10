@@ -62,7 +62,8 @@ body * {
 
 /* Container principal */
 #container {
-    width: 360px;                  /* Largura fixa para dispositivos móveis */
+    width: 100%;                   /* 100% da largura da tela */
+    max-width: 588px;              /* Largura máxima para telas maiores */;
     margin: 56px auto 0 auto;      /* Centraliza horizontalmente e adiciona margem superior */
     padding: 0 24px;               /* Padding horizontal */
 }
