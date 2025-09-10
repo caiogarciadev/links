@@ -11,7 +11,7 @@
     radial-gradient(circle at 80% 30%, rgba(0, 200, 255, 0.6) 0%, transparent 50%), 
     radial-gradient(circle at 50% 50%, rgba(255, 0, 255, 0.5) 0%, transparent 60%), 
     linear-gradient(to bottom right, #0a0a0a, #111122, #000000);               
-    background-blend-mode: screen;;   ;                   /* Modo de mistura para cores vibrantes */
+    background-blend-mode: screen;                        /* Modo de mistura para cores vibrantes */
     --text-color: white;                                /* Cor do texto branca */
     --stroke-color: rgba(255, 255, 255, 0.3);           /* Cor de bordas e linhas */
     --surface-color: rgba(255, 255, 255, 0.1);          /* Cor de superfícies como botões e cards */
@@ -113,7 +113,7 @@ body * {
 /* Botão do switch */
 #switch {
     position: relative;              /* Necessário para posicionamento absoluto do botão dentro da caixa do switch*/
-    width: 64px;                     /* Largura do switch */
+    width: 60px;                     /* Largura do switch */
     margin: 0 auto;                  /* Centraliza o switch horizontalmente */
 }
 
@@ -136,11 +136,12 @@ body * {
   right: -10%;                       /* Move o botão para a direita do switch */
   transform: translateY(-50%);       /* Move o botão para baixo do switch */ /*combinado com o debaixo centraliza verticalmente*/
   top: 50%;                          /* Posiciona o botão no meio vertical do switch */
+
+  animation: slide-in 0.5s;          /* Animação para mover o botão para a direita no tema escuro */
 }
 
 .light #switch button {
-    right: auto;                          /* Remove o posicionamento à direita */
-    left: -10%;                           /* Move o botão para a esquerda do switch */
+    animation: slide-out 0.3s forwards;   /* Animação para mover o botão para a esquerda no tema claro */
 }
 
 /* Ícone dentro do botão do switch */
@@ -150,7 +151,7 @@ body * {
 
 /*Efeito ao passar o mouse*/
 #switch button:hover {                   
-   background: var(--surface-color) ;    /* Fundo do botão ao passar o mouse */
+   outline: 8px solid var(--surface-color);  /* Efeito de contorno ao passar o mouse */
 }
 
 /* Fundo do switch */
@@ -227,4 +228,22 @@ footer  {
     color: rgba(255, 255, 255, 0.6);   /* Cor do texto com opacidade */
     border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha superior */
     margin-top: 24px;                   /* Espaçamento acima do rodapé */
+}
+
+/*animação do switch*/
+@keyframes slide-in {
+    from {
+        left: 0%;
+    }
+    to {
+        left: 50%;
+    }
+}   
+@keyframes slide-out {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0%;
+    }
 }
